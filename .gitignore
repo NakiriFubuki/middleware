@@ -1,0 +1,14 @@
+# Ignore local/runtime files
+config/config.local.php
+logs/*.log
+uploads/delivery_proofs/*
+!uploads/delivery_proofs/.gitkeep
+uploads/profiles/*
+!uploads/profiles/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
