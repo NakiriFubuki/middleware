@@ -143,8 +143,8 @@ cd middleware
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/07-parcels.png" width="48%" alt="Parcels Module" />
-  <img src="docs/screenshots/08-rider.png" width="48%" alt="Rider View" />
+  <img src="docs/screenshots/01-overview.png" width="48%" alt="Project Overview" />
+  <img src="docs/screenshots/08-rider.png" width="48%" alt="Rider Live Map" />
 </p>
 
 ---
