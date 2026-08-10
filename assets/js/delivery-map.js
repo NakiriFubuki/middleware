@@ -256,11 +256,22 @@ const DeliveryMap = {
         this.updateRecenterButton();
     },
 
-    startGpsWatch() {
+    async startGpsWatch() {
         if (!navigator.geolocation) return;
 
-        if (typeof GpsTracker !== 'undefined' && GpsTracker.isTracking) {
-            return;
+        if (typeof GpsTracker !== 'undefined') {
+            if (GpsTracker.isTracking) return;
+            if (GpsTracker.permissionDenied || GpsTracker.permissionState === 'denied') return;
+        }
+
+        // Skip if browser already blocked location (prevents console spam)
+        if (navigator.permissions && navigator.permissions.query) {
+            try {
+                const result = await navigator.permissions.query({ name: 'geolocation' });
+                if (result.state === 'denied') return;
+            } catch (e) {
+                // ignore
+            }
         }
 
         if (this.watchId !== null) {
@@ -280,7 +291,14 @@ const DeliveryMap = {
                     const statusEl = document.getElementById('deliveryMapStatus');
                     if (statusEl) statusEl.textContent = 'GPS active';
                 },
-                () => {},
+                (err) => {
+                    if (err && err.code === 1) {
+                        if (this.watchId !== null) {
+                            navigator.geolocation.clearWatch(this.watchId);
+                            this.watchId = null;
+                        }
+                    }
+                },
                 { enableHighAccuracy: false, maximumAge: 60000, timeout: 12000 }
             );
         }, 600);

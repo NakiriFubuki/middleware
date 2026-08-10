@@ -14,10 +14,12 @@ const GpsTracker = {
     minMoveMeters: 12,
     maxAccuracyMeters: 75,
     permissionDenied: false,
+    permissionState: 'unknown',
     lastErrorCode: null,
     lastToastAt: 0,
     hasCenteredMap: false,
     lowAccuracyMode: false,
+    DENIED_KEY: 'pdms_geo_denied',
 
     isAutoGpsEnabled() {
         return document.body.dataset.riderAutoGps === '1';
@@ -37,48 +39,108 @@ const GpsTracker = {
             retryBtn.addEventListener('click', () => this.retryLocation());
         }
 
-        this.checkPermissionState();
-
-        if (this.isAutoGpsEnabled() || (toggle && toggle.checked)) {
-            setTimeout(() => this.checkPermissionAndStart(), 800);
+        if (this.hasStoredDenial()) {
+            this.permissionDenied = true;
+            this.permissionState = 'denied';
+            this.showPermissionHelp();
+            return;
         }
 
-        window.addEventListener('beforeunload', () => this.stopTracking());
+        this.bootstrapPermissionFlow();
+    },
+
+    async bootstrapPermissionFlow() {
+        await this.checkPermissionState();
+
+        if (this.permissionDenied || this.permissionState === 'denied') {
+            this.showPermissionHelp();
+            return;
+        }
+
+        if (this.isAutoGpsEnabled() || document.getElementById('onlineToggle')?.checked) {
+            // Only auto-start when already granted — avoids repeated blocked prompts
+            if (this.permissionState === 'granted') {
+                setTimeout(() => this.startTracking(), 800);
+            }
+        }
+    },
+
+    hasStoredDenial() {
+        try {
+            return sessionStorage.getItem(this.DENIED_KEY) === '1';
+        } catch (e) {
+            return false;
+        }
+    },
+
+    storeDenial() {
+        try {
+            sessionStorage.setItem(this.DENIED_KEY, '1');
+        } catch (e) {
+            // ignore
+        }
+    },
+
+    clearStoredDenial() {
+        try {
+            sessionStorage.removeItem(this.DENIED_KEY);
+        } catch (e) {
+            // ignore
+        }
     },
 
     async checkPermissionState() {
-        if (!navigator.permissions || !navigator.permissions.query) return;
+        if (!navigator.permissions || !navigator.permissions.query) {
+            return this.permissionState;
+        }
 
         try {
             const result = await navigator.permissions.query({ name: 'geolocation' });
+            this.permissionState = result.state;
             this.updatePermissionUI(result.state);
-            result.onchange = () => this.updatePermissionUI(result.state);
+            result.onchange = () => {
+                this.permissionState = result.state;
+                this.updatePermissionUI(result.state);
+                if (result.state === 'granted') {
+                    this.clearStoredDenial();
+                    this.permissionDenied = false;
+                }
+            };
         } catch (e) {
             // Permissions API not fully supported
         }
+
+        return this.permissionState;
     },
 
     updatePermissionUI(state) {
         const help = document.getElementById('locationHelp');
-        if (!help) return;
 
         if (state === 'granted') {
-            help.classList.add('hidden');
             this.permissionDenied = false;
-        } else if (state === 'denied') {
-            help.classList.remove('hidden');
+            this.clearStoredDenial();
+            if (help) help.classList.add('hidden');
+            return;
+        }
+
+        if (state === 'denied') {
             this.permissionDenied = true;
-            this.showPermissionHelp(false);
+            this.storeDenial();
+            this.stopTracking();
+            if (help) help.classList.remove('hidden');
+            this.showPermissionHelp();
         }
     },
 
     async checkPermissionAndStart() {
         await this.checkPermissionState();
-        if (!this.permissionDenied) {
-            this.startTracking();
-        } else {
-            this.showPermissionHelp(false);
+
+        if (this.permissionDenied || this.permissionState === 'denied') {
+            this.showPermissionHelp();
+            return;
         }
+
+        this.startTracking();
     },
 
     async handleToggle(isOnline) {
@@ -96,7 +158,6 @@ const GpsTracker = {
                 if (label) label.textContent = isOnline ? 'Online' : 'Offline';
 
                 if (isOnline) {
-                    this.permissionDenied = false;
                     this.lowAccuracyMode = false;
                     if (statusEl) {
                         statusEl.innerHTML = '<span class="badge badge-success">Online</span>';
@@ -125,8 +186,21 @@ const GpsTracker = {
         }
     },
 
-    retryLocation() {
+    async retryLocation() {
+        await this.checkPermissionState();
+
+        if (this.permissionState === 'denied') {
+            this.permissionDenied = true;
+            this.storeDenial();
+            this.showPermissionHelp();
+            if (typeof Toast !== 'undefined') {
+                Toast.warning('Location is blocked in your browser. Click the lock/tune icon near the URL and allow Location.');
+            }
+            return;
+        }
+
         this.permissionDenied = false;
+        this.clearStoredDenial();
         this.lastErrorCode = null;
         this.lowAccuracyMode = false;
         this.hidePermissionHelp();
@@ -137,14 +211,24 @@ const GpsTracker = {
         this.startTracking(true);
     },
 
-    startTracking(force) {
+    async startTracking(force) {
         if (!navigator.geolocation) {
             this.showStatusMessage('', 'warning');
             return;
         }
 
-        if (this.permissionDenied && !force) {
-            this.showPermissionHelp(false);
+        await this.checkPermissionState();
+
+        if ((this.permissionDenied || this.permissionState === 'denied') && !force) {
+            this.showPermissionHelp();
+            return;
+        }
+
+        // Never call watchPosition when browser has permanently blocked it
+        if (this.permissionState === 'denied') {
+            this.permissionDenied = true;
+            this.storeDenial();
+            this.showPermissionHelp();
             return;
         }
 
@@ -160,6 +244,11 @@ const GpsTracker = {
 
     beginWatch() {
         if (!this.isTracking || !navigator.geolocation) return;
+        if (this.permissionDenied || this.permissionState === 'denied') {
+            this.stopTracking();
+            this.showPermissionHelp();
+            return;
+        }
 
         const options = this.lowAccuracyMode
             ? { enableHighAccuracy: false, maximumAge: 120000, timeout: 10000 }
@@ -190,7 +279,9 @@ const GpsTracker = {
 
     handlePosition(position, shouldCenter) {
         this.permissionDenied = false;
+        this.permissionState = 'granted';
         this.lastErrorCode = null;
+        this.clearStoredDenial();
         this.hidePermissionHelp();
 
         const { latitude, longitude, accuracy } = position.coords;
@@ -271,16 +362,18 @@ const GpsTracker = {
                 this.showStatusMessage('', 'warning');
             }
         } catch (e) {
-            console.error('Location upload failed:', e);
             this.showStatusMessage('', 'warning');
         }
     },
 
     handleGeoError(error) {
+        // Permission denied / blocked — stop completely (no retries, no console spam)
         if (error.code === 1) {
             this.permissionDenied = true;
+            this.permissionState = 'denied';
+            this.storeDenial();
             this.stopTracking();
-            this.showPermissionHelp(false);
+            this.showPermissionHelp();
             return;
         }
 
@@ -290,7 +383,7 @@ const GpsTracker = {
             this.stopWatchOnly();
             this.lowAccuracyMode = true;
             this.retryTimer = setTimeout(() => {
-                if (this.isTracking) this.beginWatch();
+                if (this.isTracking && !this.permissionDenied) this.beginWatch();
             }, 30000);
         }
     },
