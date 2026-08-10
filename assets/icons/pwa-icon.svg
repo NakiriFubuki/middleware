@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PDMS">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect x="96" y="96" width="320" height="320" rx="32" fill="#ffffff"/>
+  <rect x="96" y="188" width="320" height="56" fill="#3b82f6"/>
+  <text x="256" y="340" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="96" font-weight="700" fill="#2563eb">PD</text>
+</svg>

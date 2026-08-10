@@ -1,0 +1,145 @@
+/**
+ * Responsive / mobile compatibility
+ * Phone: full-width layout, no compression
+ * Desktop: fluid grids adapt to screen size
+ */
+
+/* Prevent flex children from squashing content */
+.card,
+.toolbar,
+.card-header,
+.btn-group,
+.parcel-card,
+.map-toolbar,
+.map-live-meta {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Wide tables scroll horizontally instead of shrinking the page */
+.table-responsive .data-table {
+    min-width: 560px;
+}
+
+@media (max-width: 768px) {
+    /* iOS: 16px inputs prevent auto-zoom on focus */
+    input,
+    select,
+    textarea,
+    .form-control,
+    .search-input,
+    .filter-select {
+        font-size: 16px;
+    }
+
+    .data-table {
+        font-size: 0.8125rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.625rem 0.75rem;
+    }
+
+    .actions-cell {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actions-cell .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        min-height: 40px;
+    }
+
+    .btn-sm {
+        min-height: 36px;
+    }
+
+    .modal {
+        padding: 0.75rem;
+        align-items: flex-end;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        max-height: 90dvh;
+        overflow-y: auto;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .toast-container {
+        left: 0.75rem;
+        right: 0.75rem;
+        max-width: none;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .map-container[style*="height"] {
+        min-height: 260px !important;
+    }
+
+    .map-toolbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .map-legend {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .login-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .parcel-actions .btn {
+        min-width: 0;
+        flex: 1 1 100%;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr 1fr;
+        padding: 1rem;
+    }
+
+    .table-responsive .data-table {
+        min-width: 480px;
+    }
+
+    .user-cell {
+        flex-wrap: wrap;
+    }
+
+    .toolbar .btn,
+    .toolbar .btn-group {
+        width: 100%;
+    }
+
+    .toolbar .btn-group .btn {
+        flex: 1;
+    }
+}
+
+/* Large screens: use available space without stretching too wide */
+@media (min-width: 1400px) {
+    .content-area {
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}

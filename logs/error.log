@@ -1,0 +1,151 @@
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Warning:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away in C:\xampp\htdocs\GPS System\functions\rider.php:125
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\functions\rider.php(125): PDO->prepare('UPDATE riders S...')
+#1 C:\xampp\htdocs\GPS System\api\update_location.php(40): saveRiderLocation(4, 5.3753391271562, 100.398501083, 64.0, 5)
+#2 {main}
+  thrown in C:\xampp\htdocs\GPS System\functions\rider.php on line 125
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\api\update_location.php on line 40
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:32 Asia/Manila] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\GPS System\config\config.php on line 107
+[30-Jun-2026 14:42:36 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:42:40 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:42:44 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\dashboard.php(18): getRiderProfile()
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:42:48 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:42:53 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\dashboard.php(18): getRiderProfile()
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:42:57 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:43:01 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:43:05 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:43:09 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:43:13 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\update_location.php(26): getRiderProfile(true)
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:43:17 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\dashboard.php(18): getRiderProfile()
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 14:43:21 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\api\dashboard.php(18): getRiderProfile()
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 15:04:17 Asia/Manila] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\GPS System\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\config\database.php(47): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\GPS System\config\database.php(58): Database::getConnection()
+#2 C:\xampp\htdocs\GPS System\functions\auth.php(62): db()
+#3 C:\xampp\htdocs\GPS System\rider\dashboard.php(5): getRiderProfile()
+#4 {main}
+  thrown in C:\xampp\htdocs\GPS System\config\database.php on line 47
+[30-Jun-2026 16:19:43 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 6
+[30-Jun-2026 16:19:43 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 7
+[30-Jun-2026 16:19:43 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 8
+[30-Jun-2026 16:19:43 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 27
+[30-Jun-2026 16:19:43 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 41
+[30-Jun-2026 16:19:43 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 44
+[30-Jun-2026 16:19:49 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\profile.php on line 39
+[30-Jun-2026 16:19:49 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\profile.php on line 42
+[30-Jun-2026 16:19:49 Asia/Manila] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\GPS System\rider\profile.php on line 42
+[30-Jun-2026 16:19:49 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\profile.php on line 61
+[30-Jun-2026 16:19:49 Asia/Manila] PHP Fatal error:  Uncaught TypeError: sanitize(): Argument #1 ($input) must be of type string, null given, called in C:\xampp\htdocs\GPS System\rider\profile.php on line 61 and defined in C:\xampp\htdocs\GPS System\functions\helpers.php:85
+Stack trace:
+#0 C:\xampp\htdocs\GPS System\rider\profile.php(61): sanitize(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\GPS System\functions\helpers.php on line 85
+[30-Jun-2026 16:19:51 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 6
+[30-Jun-2026 16:19:51 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 7
+[30-Jun-2026 16:19:51 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 8
+[30-Jun-2026 16:19:51 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 27
+[30-Jun-2026 16:19:51 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 41
+[30-Jun-2026 16:19:51 Asia/Manila] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\GPS System\rider\dashboard.php on line 44
+[30-Jun-2026 16:19:54 Asia/Manila] Activity log failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`parcel_delivery_db`.`activity_logs`, CONSTRAINT `activity_logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL)
+[01-Jul-2026 16:06:06 Asia/Manila] Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[01-Jul-2026 16:06:18 Asia/Manila] Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[01-Jul-2026 16:06:36 Asia/Manila] Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it

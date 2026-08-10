@@ -1,0 +1,19 @@
+<?php
+/**
+ * Server-specific settings (cPanel / production)
+ *
+ * 1. Copy this file to config.local.php in the same folder
+ * 2. Upload config.local.php to your server (do NOT commit passwords to git)
+ */
+
+// Your live site URL — must match the browser address (use %20 if folder has a space)
+define('APP_URL', 'https://engchoonhao.kolejsynergy.com/GPS_System');
+
+// cPanel → MySQL Databases (use the full names cPanel shows, e.g. user_dbname)
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'synergy1_engchoonhao_GPS_System');
+define('DB_USER', 'your_cpanel_database_user');
+define('DB_PASS', 'your_cpanel_database_password');
+
+// If the site is behind Cloudflare or a reverse proxy, real visitor IPs are read from
+// CF-Connecting-IP / X-Forwarded-For automatically. No extra PHP config is required.

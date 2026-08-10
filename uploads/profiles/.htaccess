@@ -1,0 +1,6 @@
+# Prevent script execution
+<FilesMatch "\.php$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes
