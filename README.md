@@ -55,6 +55,19 @@ A full-featured **Parcel Delivery Management System** built with **PHP, MySQL, J
 
 ---
 
+## 🎬 **Project Video**
+
+🎥 Watch the full PDMS demo video on Google Drive:  
+👉 [**Watch Project Video**](https://drive.google.com/file/d/1r3QW4j29TqiDQvEPMZ_QHj45XfoetXjU/view?usp=sharing)
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1r3QW4j29TqiDQvEPMZ_QHj45XfoetXjU/view?usp=sharing">
+    <img src="https://img.shields.io/badge/▶_Watch_Demo_Video-Google_Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="Watch Demo Video">
+  </a>
+</p>
+
+---
+
 ## 🚀 **Live Demo**
 
 🌐 **Production:** [https://engchoonhao.kolejsynergy.com/GPS_System/](https://engchoonhao.kolejsynergy.com/GPS_System/)
